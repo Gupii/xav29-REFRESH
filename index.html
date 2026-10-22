@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Xav | Personal Site</title>
+    <!-- Retro Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+    <!-- Seamless Page Entry Overlay -->
+    <div id="entry-overlay" class="page-entry-overlay"></div>
+
+    <!-- Center-to-Top-Center Logo Animation -->
+    <div id="header-container">
+        <img 
+            src="https://res.cloudinary.com/bqio04wg/image/upload/v1792523553/ezgif.com-effects_1.webp" 
+            id="animated-logo" 
+            alt="Xav Logo"
+        >
+        
+        <!-- Tagline (Reveals slowly after logo docks) -->
+        <div id="tagline">From consumers, to consumers.</div>
+
+        <!-- Nav Buttons -->
+        <div id="nav-buttons" class="nav-buttons">
+            <button class="btn btn-clean" onclick="transitionToCatalogue(event)">Catalogue</button>
+            <button class="btn btn-solid" onclick="transitionToServices(event)">Services</button>
+            <button class="btn btn-outline" onclick="openContactBubble()">Get in Contact</button>
+        </div>
+    </div>
+
+    <!-- Main Website Content -->
+    <div id="main-content">
+        
+        <main class="showcase-section" id="showcase-section">
+            <div class="showcase-row">
+                <div class="sc-text">for you</div>
+                <div class="sc-img">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792564600/20260614_172932.jpg" alt="Showcase 1" loading="lazy">
+                </div>
+            </div>
+
+            <div class="showcase-row reverse">
+                <div class="sc-text">for us</div>
+                <div class="sc-img">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792564600/20260701_225207.jpg" alt="Showcase 2" loading="lazy">
+                </div>
+            </div>
+
+            <div class="showcase-row">
+                <div class="sc-text">for everyone</div>
+                <div class="sc-img">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792564599/IMG_1192.jpg" alt="Showcase 3" loading="lazy">
+                </div>
+            </div>
+
+            <div class="showcase-row reverse">
+                <div class="sc-text">By us.</div>
+                <div class="sc-img">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1788336895/20260902_161438.jpg" alt="Showcase 4" loading="lazy">
+                </div>
+            </div>
+        </main>
+
+        <p class="inquire-text" onclick="openInquireModal()">inquire about custom builds.</p>
+
+        <!-- Company Footer -->
+        <footer class="site-footer">
+            <div class="footer-left">
+                <h3>Connect with us</h3>
+                <p>Number: 86865419</p>
+                <p>Email: bingxun.lim@gmail.com</p>
+                <p>Socials: 
+                    <a href="https://www.instagram.com/jellypcs/?hl=en" target="_blank">Instagram</a> | 
+                    <a href="https://www.tiktok.com/@xaaaar88" target="_blank">TikTok</a>
+                </p>
+            </div>
+            <div class="footer-right">
+                <p>xavpc &copy; 2026 all rights reserved</p>
+                <p><span class="tos-link" onclick="openModal('tosModal')">Terms of Service</span></p>
+            </div>
+        </footer>
+        
+    </div>
+
+    <!-- Retro Pixel Banner -->
+    <div class="pixel-banner">
+        <div class="pixel-marquee">
+            <span>NOW FOR SALE: <u class="pixel-trigger" onclick="openPixelModal()">1440P GAMING PC</u> &nbsp;&nbsp;&bull;&nbsp;&nbsp; PC SERVICES &nbsp;&nbsp;&bull;&nbsp;&nbsp; CUSTOM BUILDS &nbsp;&nbsp;&bull;&nbsp;&nbsp; UPGRADES &nbsp;&nbsp;&bull;&nbsp;&nbsp; BUYBACK &nbsp;&nbsp;&bull;&nbsp;&nbsp; </span>
+            <span>NOW FOR SALE: <u class="pixel-trigger" onclick="openPixelModal()">1440P GAMING PC</u> &nbsp;&nbsp;&bull;&nbsp;&nbsp; PC SERVICES &nbsp;&nbsp;&bull;&nbsp;&nbsp; CUSTOM BUILDS &nbsp;&nbsp;&bull;&nbsp;&nbsp; UPGRADES &nbsp;&nbsp;&bull;&nbsp;&nbsp; BUYBACK &nbsp;&nbsp;&bull;&nbsp;&nbsp; </span>
+            <span>NOW FOR SALE: <u class="pixel-trigger" onclick="openPixelModal()">1440P GAMING PC</u> &nbsp;&nbsp;&bull;&nbsp;&nbsp; PC SERVICES &nbsp;&nbsp;&bull;&nbsp;&nbsp; CUSTOM BUILDS &nbsp;&nbsp;&bull;&nbsp;&nbsp; UPGRADES &nbsp;&nbsp;&bull;&nbsp;&nbsp; BUYBACK &nbsp;&nbsp;&bull;&nbsp;&nbsp; </span>
+            <span>NOW FOR SALE: <u class="pixel-trigger" onclick="openPixelModal()">1440P GAMING PC</u> &nbsp;&nbsp;&bull;&nbsp;&nbsp; PC SERVICES &nbsp;&nbsp;&bull;&nbsp;&nbsp; CUSTOM BUILDS &nbsp;&nbsp;&bull;&nbsp;&nbsp; UPGRADES &nbsp;&nbsp;&bull;&nbsp;&nbsp; BUYBACK &nbsp;&nbsp;&bull;&nbsp;&nbsp; </span>
+        </div>
+    </div>
+
+    <!-- Original Dark Red Floating Action Button -->
+    <div id="reachOutFab" class="fab-bubble" onclick="openContactBubble()">
+        Reach out
+    </div>
+
+    <!-- Compact Expandable Contact Form (Dark Mode) -->
+    <div id="contactFormContainer" class="contact-form-container">
+        <div class="contact-form-header">
+            <h3>Get in Touch</h3>
+            <button class="close-form-btn" onclick="closeContactBubble(event)">&times;</button>
+        </div>
+        
+        <div class="form-group">
+            <label>Purpose of contact:</label>
+            <select id="contactPurpose" onchange="updateDynamicSection()">
+                <option value="custom">Custom PC building</option>
+                <option value="repairs">Computer services and repairs</option>
+                <option value="others">Others / advice</option>
+            </select>
+        </div>
+
+        <div class="form-group" id="dynamicSection">
+            <!-- Injected via JS -->
+        </div>
+
+        <div class="form-group">
+            <label>Contact Number (if applicable):</label>
+            <input type="text" id="contactNumber" placeholder="e.g. 86865419">
+        </div>
+
+        <div class="form-group">
+            <label>Email (if applicable):</label>
+            <input type="email" id="contactEmail" placeholder="your@email.com">
+        </div>
+
+        <button class="btn-whatsapp" onclick="submitToWhatsApp()">Send via WhatsApp</button>
+    </div>
+
+    <!-- Instant Inquire Modal with 3D Carousel & Bizgram -->
+    <div id="inquireModal" class="instant-modal">
+        <button class="fixed-close-btn" onclick="closeInquireModal()">&times;</button>
+        
+        <div class="instant-modal-content">
+            <p class="inq-p1">Each one of these represents a customer satisfied with their build.</p>
+            <p class="inq-p2">and you can be one of them too.</p>
+            <h1 class="impact-shadows">BUILD TODAY.<br>PLAY TOMORROW.</h1>
+            
+            <div class="carousel-3d-wrapper">
+                <button class="car-nav" onclick="prevCar()">&#10094;</button>
+                <div class="carousel-3d-stage" id="carouselStage">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792576701/IMG_1192-removebg-preview.png" class="car-3d-item" alt="Showcase PC">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792576700/IMG_20260809_161424_025-removebg-preview.png" class="car-3d-item" alt="Showcase PC">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792576702/IMG_1190-removebg-preview.png" class="car-3d-item" alt="Showcase PC">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792576703/20260906_113405-removebg-preview.png" class="car-3d-item" alt="Showcase PC">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792576705/20260701_225207-removebg-preview.png" class="car-3d-item" alt="Showcase PC">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792576707/20260614_172932-removebg-preview.png" class="car-3d-item" alt="Showcase PC">
+                </div>
+                <button class="car-nav" onclick="nextCar()">&#10095;</button>
+            </div>
+
+            <!-- Bizgram Integration Section strictly inside the Modal -->
+            <div class="bizgram-integrated">
+                <p class="bg-dream">With ties to bizgram, we have access to a catalogue many others don't have, so our customers never need to stop dreaming.</p>
+                <h2 class="bg-motto">SHOP WITH US,<br>BUILD WITH US.</h2>
+
+                <div class="bg-rules">
+                    <p>All items are subject to tax and price increases at any time.</p>
+                    <p>Self collect at 541312 block 312A.</p>
+                    <p>Builds require 1-2 working days to be fully vetted and ready for use.</p>
+                    <p>Delivery charges are also applicable, and so are labour fees.</p>
+                    <p class="highlight-rule">PC parts picking has an additional fee of $30.</p>
+                </div>
+
+                <!-- Updated Bizgram Link -->
+                <a href="https://bizgram.com/pricelists/download/606" target="_blank" class="btn btn-solid pdf-btn">Download Full Bizgram Catalogue (PDF)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pixelated 1440p PC Modal -->
+    <div id="pixelModal" class="modal-overlay">
+        <div class="modal-card pixel-modal-card">
+            <button class="pixel-close-btn" onclick="closePixelModal(event)">&times;</button>
+            <h2 class="pixel-title">1440P GAMING PC</h2>
+            <p class="pixel-specs">i5-12400F // RTX 3070 // 32GB RAM</p>
+            
+            <div class="mm-gallery-grid">
+                <div class="mm-gallery-item">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1786903755/IMG_3670.jpg" alt="PC Angle 1" loading="lazy">
+                </div>
+                <div class="mm-gallery-item">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1786903756/IMG_3678.jpg" alt="PC Angle 2" loading="lazy">
+                </div>
+                <div class="mm-gallery-item">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1786903755/IMG_3671.jpg" alt="PC Angle 3" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="tosModal" class="modal-overlay">
+        <div class="modal-card tos-card">
+            <button class="fixed-close-btn-tos" onclick="closeModal('tosModal')">&times;</button>
+            <h2>Terms of Service & Sales Agreement</h2>
+            <div class="tos-content">
+                <p>By purchasing any product, hardware component, or custom-built system from XAVPC, the Buyer explicitly agrees to be legally bound by the following terms.</p>
+                <h3>1. Payment Terms & Methods</h3>
+                <ul>
+                    <li>Payments are accepted strictly via PayNow, Carousell Escrow (CarouPay), and Cash.</li>
+                    <li>No hardware will be handed over, shipped, or delivered until full payment has cleared into the Seller's designated account.</li>
+                </ul>
+                <h3>2. Fulfillment, Collection, & Shipping</h3>
+                <ul>
+                    <li>Buyers opting for self-collection must pick up items at the Seller's designated location and inspect the condition during collection.</li>
+                    <li>Courier or delivery services are available entirely at the Customer's expense.</li>
+                    <li>The risk of loss, theft, or transit damage passes completely to the Buyer the moment the package is handed over to the third-party courier service.</li>
+                </ul>
+                <h3>3. Warranty Policy: Brand New Custom PCs</h3>
+                <ul>
+                    <li>Component warranties for brand new custom PCs are tied directly to the specific warranty periods provided by the respective individual parts manufacturers.</li>
+                    <li>The Buyer must liaise directly with the Seller for any and all hardware issues or warranty claims.</li>
+                    <li>Diagnostic and replacement labor provided by the Seller to facilitate manufacturer warranty claims is fully covered.</li>
+                </ul>
+                <h3>4. Warranty & Support Policy: Refurbished Systems</h3>
+                <ul>
+                    <li>Refurbished systems include a 1-month (30 days) limited hardware warranty covering core hardware components essential to function.</li>
+                    <li>Following the 1-month hardware warranty, the Seller provides an additional 3 months of post-sales support limited to remote troubleshooting and software configuration advice.</li>
+                    <li>Consumable parts, software corruption, virus infections, user-inflicted physical or liquid damage are entirely excluded from both warranty and support.</li>
+                </ul>
+                <h3>5. Absolute Right to Repair Before Refund</h3>
+                <ul>
+                    <li>For any valid hardware defect, the Seller reserves the exclusive right to repair the system or replace the defective component first.</li>
+                    <li>A cash refund or item return will only be considered as a last resort if the system is deemed completely unfixable.</li>
+                    <li>The Buyer is solely responsible for transporting or paying courier fees to deliver the system back to the Seller's designated location.</li>
+                </ul>
+                <h3>6. Data Loss & Liability Waiver</h3>
+                <ul>
+                    <li>The Buyer bears sole responsibility for backing up all data, personal files, and software licenses prior to handing over any system.</li>
+                    <li>The Seller assumes absolutely no liability for any loss of data, corrupted files, or software uninstallation.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ARCHIVED ASSETS -->
+    <div id="archive-do-not-delete" style="display: none;"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+            }
+            window.scrollTo(0, 0);
+
+            const logo = document.getElementById("animated-logo");
+            const tagline = document.getElementById("tagline");
+            const navButtons = document.getElementById("nav-buttons");
+            const mainContent = document.getElementById("main-content");
+            const entryOverlay = document.getElementById("entry-overlay");
+            const body = document.body;
+
+            const fromSubpage = document.referrer.includes("services.html") || document.referrer.includes("catalogue.html");
+
+            if (fromSubpage) {
+                const elements = [logo, tagline, navButtons, mainContent];
+                elements.forEach(el => el.style.transition = "none");
+                
+                logo.classList.add("docked");
+                tagline.classList.add("revealed");
+                navButtons.classList.add("revealed");
+                mainContent.classList.add("revealed");
+                body.classList.remove("locked");
+
+                void logo.offsetWidth;
+                elements.forEach(el => el.style.transition = "");
+
+                requestAnimationFrame(() => {
+                    entryOverlay.classList.add("fade-out");
+                });
+                setTimeout(() => entryOverlay.remove(), 1000);
+
+            } else {
+                entryOverlay.style.display = "none";
+
+                setTimeout(() => {
+                    logo.classList.add("docked");
+
+                    setTimeout(() => {
+                        tagline.classList.add("revealed");
+                        navButtons.classList.add("revealed");
+                        mainContent.classList.add("revealed");
+                            
+                        setTimeout(() => {
+                            body.classList.remove("locked");
+                        }, 400);
+
+                    }, 1200); 
+                }, 2000);
+            }
+
+            updateDynamicSection();
+            init3DCarousel();
+        });
+
+        function transitionToCatalogue(e) {
+            e.preventDefault();
+            
+            const wrapper = document.createElement('div');
+            wrapper.classList.add('tech-transition-wrapper');
+            wrapper.style.left = e.clientX + 'px';
+            wrapper.style.top = e.clientY + 'px';
+            
+            const ring1 = document.createElement('div'); ring1.className = 'tech-ring-1';
+            const ring2 = document.createElement('div'); ring2.className = 'tech-ring-2';
+            const poly = document.createElement('div'); poly.className = 'tech-poly';
+            const core = document.createElement('div'); core.className = 'tech-core';
+            
+            wrapper.appendChild(ring1);
+            wrapper.appendChild(ring2);
+            wrapper.appendChild(poly);
+            wrapper.appendChild(core);
+            document.body.appendChild(wrapper);
+            
+            void wrapper.offsetWidth;
+            wrapper.classList.add('active');
+
+            setTimeout(() => {
+                window.location.href = 'catalogue.html';
+            }, 1000); 
+        }
+
+        function transitionToServices(e) {
+            e.preventDefault();
+            const circle = document.createElement('div');
+            circle.classList.add('grey-transition-circle');
+            circle.style.left = e.clientX + 'px';
+            circle.style.top = e.clientY + 'px';
+            document.body.appendChild(circle);
+            
+            setTimeout(() => { circle.classList.add('active'); }, 10);
+            setTimeout(() => { window.location.href = 'services.html'; }, 600); 
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                const y = el.getBoundingClientRect().top + window.scrollY - 150;
+                window.scrollTo({top: y, behavior: 'smooth'});
+            }
+        }
+
+        function openPixelModal() {
+            const modal = document.getElementById('pixelModal');
+            modal.classList.remove('closing');
+            modal.classList.add('active');
+        }
+
+        function closePixelModal(event) {
+            if(event) event.stopPropagation();
+            const modal = document.getElementById('pixelModal');
+            modal.classList.add('closing');
+            setTimeout(() => {
+                modal.classList.remove('active');
+                modal.classList.remove('closing');
+            }, 400); 
+        }
+
+        // ORIGINAL REACH OUT BUTTON LOGIC
+        function openContactBubble() {
+            document.getElementById('contactFormContainer').classList.add('active');
+            document.getElementById('reachOutFab').style.transform = "scale(0)";
+        }
+
+        function closeContactBubble(event) {
+            if(event) event.stopPropagation();
+            document.getElementById('contactFormContainer').classList.remove('active');
+            document.getElementById('reachOutFab').style.transform = "scale(1)";
+        }
+
+        function updateDynamicSection() {
+            const purpose = document.getElementById('contactPurpose').value;
+            const dynamicSection = document.getElementById('dynamicSection');
+            
+            if (purpose === 'custom') {
+                dynamicSection.innerHTML = `
+                    <label>Select build type:</label>
+                    <select id="customType">
+                        <option value="Assembly (parts already purchased)">Assembly (parts already purchased)</option>
+                        <option value="Parts picking + Assembly">Parts picking + Assembly</option>
+                    </select>
+                `;
+            } else if (purpose === 'repairs') {
+                dynamicSection.innerHTML = `
+                    <label>Hardware Details:</label>
+                    <textarea id="repairDesc" rows="3" placeholder="Describe specs, issues, and repair history..."></textarea>
+                `;
+            } else {
+                dynamicSection.innerHTML = `
+                    <label>How can I help you?</label>
+                    <textarea id="otherDesc" rows="3" placeholder="Type your message here..."></textarea>
+                `;
+            }
+        }
+
+        function submitToWhatsApp() {
+            const purpose = document.getElementById('contactPurpose').value;
+            let details = "";
+
+            if (purpose === 'custom') {
+                const type = document.getElementById('customType').value;
+                details = `Purpose: Custom PC Building%0A- Type: ${type}`;
+            } else if (purpose === 'repairs') {
+                const desc = document.getElementById('repairDesc').value || "No description provided.";
+                details = `Purpose: Computer Services & Repairs%0A- Details: ${desc}`;
+            } else {
+                const desc = document.getElementById('otherDesc').value || "No description provided.";
+                details = `Purpose: Others / Advice%0A- Details: ${desc}`;
+            }
+
+            const number = document.getElementById('contactNumber').value || "N/A";
+            const email = document.getElementById('contactEmail').value || "N/A";
+
+            const payload = `Hello XAVPC, I have an inquiry.%0A%0A${details}%0A%0AContact Number: ${number}%0AEmail: ${email}`;
+            window.open(`https://wa.me/6586865419?text=${payload}`, '_blank');
+        }
+
+        let currentCarIndex = 0;
+        let carItems = [];
+
+        function init3DCarousel() {
+            carItems = document.querySelectorAll('.car-3d-item');
+            carItems.forEach((item, index) => {
+                item.addEventListener('click', () => {
+                    if (item.classList.contains('prev')) prevCar();
+                    if (item.classList.contains('next')) nextCar();
+                });
+            });
+            update3DCarousel();
+        }
+
+        function update3DCarousel() {
+            const total = carItems.length;
+            carItems.forEach((item, index) => {
+                item.classList.remove('active', 'prev', 'next', 'hidden');
+                
+                if (index === currentCarIndex) {
+                    item.classList.add('active');
+                } else if (index === (currentCarIndex - 1 + total) % total) {
+                    item.classList.add('prev');
+                } else if (index === (currentCarIndex + 1) % total) {
+                    item.classList.add('next');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        function nextCar() {
+            currentCarIndex = (currentCarIndex + 1) % carItems.length;
+            update3DCarousel();
+        }
+
+        function prevCar() {
+            currentCarIndex = (currentCarIndex - 1 + carItems.length) % carItems.length;
+            update3DCarousel();
+        }
+
+        function openInquireModal() {
+            document.getElementById('inquireModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeInquireModal() {
+            document.getElementById('inquireModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function openModal(id) { document.getElementById(id).classList.add('active'); }
+        function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal-overlay')) {
+                if (event.target.id === 'pixelModal') {
+                    closePixelModal();
+                } else {
+                    event.target.classList.remove('active');
+                }
+            }
+        };
+    </script>
+</body>
+</html>

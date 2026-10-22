@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+    <title>Xav | Catalogue</title>
+    <!-- Retro Pixel Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <!-- Inherits your global styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="catalogue-body">
+
+    <!-- Seamless Page Entry Overlay -->
+    <div id="entry-overlay" class="page-entry-overlay catalogue-entry"></div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn" onclick="transitionToHome(event)">&larr; Back to Home</a>
+
+    <!-- Main Catalogue Container -->
+    <div class="catalogue-page-wrapper">
+        <h1 class="cat-page-title">THE CATALOGUE</h1>
+        <p class="cat-page-sub">Available pre-built systems. Ready for deployment.</p>
+
+        <!-- Refurbished & Warranty Notice -->
+        <div class="cat-disclaimer">
+            <p><strong>CONDITION & WARRANTY NOTICE:</strong> Most components inside these builds use refurbished parts that have been rigorously stress-tested to vet their condition before being used. All parts are assumed to have no manufacturer warranty unless otherwise stated. My personal warranty extends past 1 month for certain components, assuming there is active manufacturer warranty remaining.</p>
+        </div>
+
+        <div class="cat-grid">
+            
+            <!-- Listing Card 1: High End 1440P PC -->
+            <div class="cat-card" onclick="openListingModal('listing-1')">
+                <div class="cat-card-img-box">
+                    <img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792572586/20261019_041305.jpg" alt="High end 1440P GAMING PC" loading="eager">
+                    <div class="cat-card-overlay">
+                        <span>View Details</span>
+                    </div>
+                </div>
+                <div class="cat-card-info">
+                    <span class="cat-badge">IN STOCK</span>
+                    <h3>High end 1440P GAMING PC</h3>
+                    <p class="cat-short-specs">3070ti • 5800x • 32gb RAM • 1TB NVMe SSD</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Expanded Listing Modal -->
+    <div id="listing-1" class="cat-modal-overlay">
+        <div class="cat-modal-content">
+            <button class="cat-close-btn" onclick="closeListingModal('listing-1', event)">&times;</button>
+            
+            <!-- Left Side: Lag-Free GPU Accelerated Gallery -->
+            <div class="cat-gallery-section">
+                <button class="cat-nav-btn left" onclick="moveCatSlide(-1)">&#10094;</button>
+                <button class="cat-nav-btn right" onclick="moveCatSlide(1)">&#10095;</button>
+                
+                <div class="cat-carousel-viewport">
+                    <div class="cat-carousel-track" id="catTrack">
+                        <!-- All 8 images pre-rendered in the track to prevent first-swipe lag -->
+                        <div class="cat-slide"><img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792572586/20261019_041305.jpg" alt="PC Angle 1"></div>
+                        <div class="cat-slide"><img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792572594/20261019_041251.jpg" alt="PC Angle 2"></div>
+                        <div class="cat-slide"><img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792572557/photo_2026-10-19_01-38-13.jpg" alt="PC Angle 3"></div>
+                        <div class="cat-slide"><img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792572610/photo_2026-10-21_16-48-55.jpg" alt="PC Angle 4"></div>
+                        <div class="cat-slide"><img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792572609/photo_2026-10-21_16-48-57.jpg" alt="PC Angle 5"></div>
+                        <div class="cat-slide"><img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792572611/photo_2026-10-21_16-48-54.jpg" alt="PC Angle 6"></div>
+                        <div class="cat-slide"><img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792572612/photo_2026-10-21_16-48-53.jpg" alt="PC Angle 7"></div>
+                        <div class="cat-slide"><img src="https://res.cloudinary.com/bqio04wg/image/upload/v1792572613/photo_2026-10-21_16-48-42.jpg" alt="PC Angle 8"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Specs & Benchmarks -->
+            <div class="cat-details-section">
+                <h2>High end 1440P GAMING PC</h2>
+                <div class="cat-divider"></div>
+                
+                <div class="cat-specs-box">
+                    <h4>SYSTEM SPECIFICATIONS</h4>
+                    <ul>
+                        <li>RTX 3070ti MSI Ventus 3x</li>
+                        <li>Ryzen 7 5800X (8C/16T)</li>
+                        <li>G.SKILL 32GB (8x4) 3200MHZ DDR4 RAM</li>
+                        <li>KLEVV C910 1TB GEN4.0 NVME SSD</li>
+                        <li>ASROCK B550M WIFI SE (Inbuilt Wi-Fi & Bluetooth)</li>
+                        <li>SUPERFLOWER 750W GOLD SEMI-MODULAR PSU</li>
+                        <li>METALFISH FR400 V2 8 HEATPIPE SINGLE TOWER COOLER</li>
+                        <li>GENERIC FISHTANK CASE</li>
+                        <li class="highlight-spec"><strong>Included:</strong> Free Windows 11 Home & Power Cord Cable</li>
+                    </ul>
+                </div>
+
+                <div class="cat-benchmarks-box">
+                    <h4>VERIFIED BENCHMARKS</h4>
+                    <div class="bench-grid">
+                        <div class="bench-item">
+                            <span class="bench-game">Battlefield 6</span>
+                            <span class="bench-fps">80+ FPS</span>
+                            <span class="bench-res">1440P High</span>
+                        </div>
+                        <div class="bench-item">
+                            <span class="bench-game">Forza Horizon 6</span>
+                            <span class="bench-fps">90+ FPS</span>
+                            <span class="bench-res">1440P Ultra</span>
+                        </div>
+                        <div class="bench-item">
+                            <span class="bench-game">CS2</span>
+                            <span class="bench-fps">200-300 FPS</span>
+                            <span class="bench-res">1440P High</span>
+                        </div>
+                        <div class="bench-item">
+                            <span class="bench-game">VALORANT</span>
+                            <span class="bench-fps">500+ FPS</span>
+                            <span class="bench-res">1440P</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cat-warranty-box">
+                    <h4>COVERAGE & SUPPORT</h4>
+                    <ul>
+                        <li><strong>1-Month Warranty:</strong> Standard hardware defect coverage.</li>
+                        <li><strong>3-Month Post-Sales Support:</strong> Maintenance and hardware upgrade assistance.</li>
+                        <li class="fine-print"><em>Note: Buyer must cover shipping costs to return the system to our facility for any warranty or post-sales support services.</em></li>
+                    </ul>
+                </div>
+
+                <button class="cat-buy-btn" onclick="openContactFromCat()">INQUIRE / PURCHASE</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interface Logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const overlay = document.getElementById("entry-overlay");
+            requestAnimationFrame(() => {
+                overlay.classList.add("fade-out");
+            });
+            setTimeout(() => {
+                overlay.style.display = "none";
+            }, 1000);
+        });
+
+        function transitionToHome(e) {
+            e.preventDefault();
+            const overlay = document.getElementById("entry-overlay");
+            overlay.style.display = "block";
+            
+            void overlay.offsetWidth;
+            overlay.style.transition = "opacity 0.4s ease";
+            overlay.classList.remove("fade-out");
+            
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 400);
+        }
+
+        // ==========================================
+        // HIGH PERFORMANCE CATALOGUE GALLERY
+        // ==========================================
+        let catSlideIndex = 0;
+        const totalCatSlides = 8; 
+
+        function openListingModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; 
+            
+            catSlideIndex = 0;
+            updateCatGallery();
+        }
+
+        function closeListingModal(modalId, event) {
+            if(event) event.stopPropagation();
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function moveCatSlide(direction) {
+            catSlideIndex = (catSlideIndex + direction + totalCatSlides) % totalCatSlides;
+            updateCatGallery();
+        }
+
+        function updateCatGallery() {
+            const track = document.getElementById('catTrack');
+            track.style.transform = `translate3d(-${catSlideIndex * 100}%, 0, 0)`;
+        }
+
+        function openContactFromCat() {
+            window.open(`https://wa.me/6586865419?text=Hello XAVPC, I am interested in purchasing the High End 1440P GAMING PC.`, '_blank');
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('cat-modal-overlay')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        };
+    </script>
+</body>
+</html>
